@@ -1,0 +1,11 @@
+.featuredProducts {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 10px;
+}
+@media only screen and (max-width: 600px) {
+    .featuredProducts {
+        display: block;
+
+    }
+  }

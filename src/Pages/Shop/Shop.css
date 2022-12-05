@@ -1,0 +1,11 @@
+.shop {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+@media only screen and (max-width: 600px) {
+    .shop {
+        display: grid;
+    grid-template-columns: 6fr ;
+
+    }    
+  }
