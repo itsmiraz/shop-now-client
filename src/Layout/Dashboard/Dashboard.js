@@ -10,7 +10,7 @@ const Dashboard = () => {
             <Header></Header>
             <div className="drawer drawer-mobile">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content py-10 h-full relative flex flex-col items-center justify-center">
+                <div className="drawer-content  relative flex flex-col items-center justify-center">
                     <Outlet></Outlet>
                     <label htmlFor="my-drawer-2" className=" absolute top-5 left-5 drawer-button lg:hidden">
 
