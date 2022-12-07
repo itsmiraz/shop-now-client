@@ -1,6 +1,6 @@
 import React from 'react';
 import './Shop.css'
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, ScrollRestoration, useLoaderData } from 'react-router-dom';
 import ProductCard from '../../Components/ProductCard/ProductCard';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -77,6 +77,7 @@ const Shop = () => {
 
             </div>
             </div>
+            <ScrollRestoration />
         </div>
     );
 };

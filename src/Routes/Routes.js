@@ -7,12 +7,14 @@ import AllSales from "../Pages/AdminPanel/AllSales";
 import AllUsers from "../Pages/AdminPanel/AllUsers";
 import Cart from "../Pages/Cart/Cart";
 import Contact from "../Pages/Contact/Contact";
+import UserPage from "../Pages/DashboardRoutes/UserPage/UserPage";
 import Delivery from "../Pages/Delivery/Delivery";
 import Home from "../Pages/Home/Home/Home";
 import LoginPage from "../Pages/LoginPage/LoginPage";
 import Payment from "../Pages/Payment/Payment";
 import RegisterPage from "../Pages/RegisterPage/RegisterPage";
 import Shop from "../Pages/Shop/Shop";
+import AdminRoute from "./AdminRoute/AdminRoute";
 import Private from "./Private";
 
 
@@ -53,8 +55,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/payments/:id',
-                loader:({params})=>fetch(`http://localhost:5000/payments/${params.id}`),
-                element:<Private><Payment></Payment></Private>
+                loader: ({ params }) => fetch(`http://localhost:5000/payments/${params.id}`),
+                element: <Private><Payment></Payment></Private>
             },
             {
                 path: '/contact',
@@ -67,20 +69,24 @@ const router = createBrowserRouter([
         element: <Private><Dashboard></Dashboard></Private>,
         children: [
             {
+                path: '/dashboard',
+                element: <Private><UserPage></UserPage></Private>
+            },
+            {
                 path: '/dashboard/adminpanel',
-                element:<AdminPanel></AdminPanel>
+                element: <Private><AdminRoute><AdminPanel></AdminPanel></AdminRoute></Private>
             },
             {
                 path: '/dashboard/allusers',
-                element:<AllUsers></AllUsers>
+                element: <Private><AdminRoute><AllUsers></AllUsers></AdminRoute></Private>
             },
             {
                 path: '/dashboard/allsales',
-                element:<AllSales></AllSales>
+                element: <Private><AdminRoute><AllSales></AllSales></AdminRoute></Private>
             },
             {
                 path: '/dashboard/delivery',
-                element:<Private><Delivery></Delivery></Private>
+                element: <Private><Delivery></Delivery></Private>
             }
         ]
     }

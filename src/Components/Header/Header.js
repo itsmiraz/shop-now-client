@@ -20,7 +20,7 @@ const Header = () => {
     }
 
     return (
-        <div className=' shadow sticky top-0 z-50 bg-gray-200 md:bg-white text-gray-700 items-center md:px-10 px-4 py-3 flex justify-between w-full'>
+        <div className=' shadow  sticky top-0 z-50 bg-gray-200 md:bg-white text-gray-700 items-center md:px-10 px-4 py-3 flex justify-between w-full'>
 
             <img width={'150px'} src={logo} alt="" />
 
@@ -44,7 +44,7 @@ const Header = () => {
                         <Link>About</Link>
                     </li>
                     <li className='font-semibold hover:text-orange-500 mr-4 '>
-                        <Link to='/dashboard/adminpanel'>DashBoard</Link>
+                        <Link to='/dashboard'>DashBoard</Link>
                     </li>
                     <li className='font-semibold hover:text-orange-500 '>
                         <Link to='/cart' >

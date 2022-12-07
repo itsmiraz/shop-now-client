@@ -8,7 +8,7 @@ import OrderSummury from './OrderSummury';
 import toast from 'react-hot-toast';
 import { useQuery } from '@tanstack/react-query';
 import LoadingAnimation from '../../Components/LoadingAnimation/LoadingAnimation';
-import { useNavigate } from 'react-router-dom';
+import { ScrollRestoration, useNavigate } from 'react-router-dom';
 const Cart = () => {
     const navigate = useNavigate()
     const { user } = useContext(AuthContext)
@@ -152,7 +152,7 @@ const Cart = () => {
 
                 }
             </div>
-            <div className={`text-center absolute top-15 h-screen z-50 md:right-0 ease-linear duration-200  ${open ? `right-0` : ' right-[-500px]'}`}>
+            <div className={`text-center absolute top-15 z-40 md:right-0 ease-linear duration-200  ${open ? `right-0` : ' right-[-500px]'}`}>
                 <OrderSummury
                     totalPrice={totalPrice}
                     totalProducts={totalProducts}
@@ -191,6 +191,7 @@ const Cart = () => {
                 </label>
 
             </div>
+            <ScrollRestoration />
         </div>
     );
 };

@@ -4,7 +4,7 @@ const MessageCard = ({ message }) => {
     return (
         <div>
             <div className="container shadow-lg flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-white text-gray-900">
-                <div className="flex justify-between p-4">
+                <div className="flex justify-between p-2">
                     <div className="flex space-x-4">
 
                         <div>
