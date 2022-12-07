@@ -19,7 +19,6 @@ const FeaturedProducts = () => {
 
 
     const renderer = ({ hours, minutes, seconds, completed }) => {
-        console.log(hours,minutes,seconds)
         if (completed) {
           // Render a complete state
           return <Completionist />;
@@ -51,7 +50,6 @@ const FeaturedProducts = () => {
           );
         }
       };
-console.log();
 
     return (
         <div className='featuredProducts  p-4  md:p-10 bg-gray-300'>

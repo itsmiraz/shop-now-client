@@ -154,7 +154,7 @@ const Login = () => {
                             </p>
                         </div>
                         <div className='w-full absolute bottom-0 '>
-                            <Wave fill='#d6591b'
+                            <Wave fill='#f97316'
                                 className='absolute bottom-0'
                                 paused={false}
                                 options={{
