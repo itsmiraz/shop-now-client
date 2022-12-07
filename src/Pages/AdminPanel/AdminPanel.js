@@ -3,6 +3,7 @@ import React from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import LoadingAnimation from '../../Components/LoadingAnimation/LoadingAnimation';
+import AddProductModal from './AddProductModal';
 
 const AdminPanel = () => {
 
@@ -47,19 +48,42 @@ const AdminPanel = () => {
 
     return (
         <div className='bg-gray-300 h-screen p-5 w-full'>
-            <h1>This is Admin Panel</h1>
-            <div className='grid gird-cols-1 md:grid-cols-2'>
-                <div>
+            <h1 className='text-xl text-center font-semibold my-4' >This is Admin Panel</h1>
+            <AddProductModal></AddProductModal>
+            <div className='grid gird-cols-1 gap-5 md:grid-cols-2'>
 
+                <div className=' gap-y-5 grid grid-cols-1  shadow-lg'>
+                    <div className='bg-gray-200   py-5 '>
+                    <h1 className='text-xl text-center font-semibold'>Admin and Moderators</h1>
+                        <div className='px-8 '>
+                        {
+                            users.filter(user=>user.role !== 'user').map((user,i)=>  <div
+                                key={user._id}
+                                className='flex bg-white relative shadow my-4 h-10 px-2 items-center mx-auto justify-between  font-semibold gap-3'
+                            >
+                                <p className='absolute left-2'>{ i+1}.</p>
+                                <p className='ml-4'>{user.name}</p>
+                                <p>{user.email}</p>
+                               
+                            </div>)
+                    }
+                       </div>
+                    </div>
+                    <div className='bg-gray-200 flex justify-center items-center'>
+                        <h1 className='text-2xl text-center font-bold'>Add A Products?</h1>
+                        <label htmlFor="addProduct" className='px-4 py-2 bg-orange-500 font-semibold text-white rounded-full mx-4'>Add</label>
+                       
+                   </div>
                 </div>
                 <div className='bg-gray-200 px-10  py-5 shadow-lg'>
                     <h1 className='text-xl text-center font-semibold'>All Users</h1>
                     {
-                        users.slice(0, 5).map(user => <div
+                        users.slice(0, 5).map((user,i) => <div
                             key={user._id}
-                            className='flex bg-white shadow my-4 h-10 px-2 items-center mx-auto justify-between  font-semibold gap-3'
+                            className='flex bg-white relative shadow my-4 h-10 px-2 items-center mx-auto justify-between  font-semibold gap-3'
                         >
-                            <p>{user.name}</p>
+                            <p className='absolute left-2'>{ i+1}.</p>
+                            <p className='ml-4'>{user.name}</p>
                             <p>{user.email.slice(0, 25)}..</p>
                             <div className="dropdown dropdown-end">
                                 <label tabIndex={0} className=" m-1">
@@ -102,6 +126,7 @@ const AdminPanel = () => {
                         </button>
                     </Link>
                 </div>
+           
             </div>
         </div>
     );
