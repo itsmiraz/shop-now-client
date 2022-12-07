@@ -8,10 +8,31 @@ const Dashboard = () => {
     return (
         <div>
             <Header></Header>
-            <div className="drawer drawer-mobile">
+            <div className="grid grid-cols-6">
+                <div className="col-span-1 menu  ">
+                    <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+
+
+
+                    <ul className="p-4 w-72 bg-base-100 text-base-content">
+
+                        <li>
+                        
+                            <img className='w-28  rounded-full ' src="https://i.pinimg.com/originals/3f/94/70/3f9470b34a8e3f526dbdb022f9f19cf7.jpg" alt="" />
+                            <h1 className='text-center text-xl font-semibold'>{user?.displayName}</h1>
+
+                       
+                       </li>
+                        <li><Link to='/dashboard/delivery'>Delivery</Link></li>
+                        <li><Link to='/dashboard/adminpanel'>Admin Panel</Link></li>
+                        <li><Link to='/dashboard/allusers'>All Users</Link></li>
+                        <li><Link to='/dashboard/allsales'>Sales</Link></li>
+                    </ul>
+
+                </div>
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content  relative flex flex-col items-center justify-center">
-                    <Outlet></Outlet>
+                <div className="col-span-5 relative flex flex-col items-center justify-center">
+                    <Outlet ></Outlet>
                     <label htmlFor="my-drawer-2" className=" absolute top-5 left-5 drawer-button lg:hidden">
 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -22,24 +43,7 @@ const Dashboard = () => {
                     </label>
 
                 </div>
-                <div className="drawer-side">
-                    <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
 
-
-
-                    <ul className="menu p-4 w-72 bg-base-100 text-base-content">
-                        <div>
-                            <img className='w-28 h-28 rounded-full mx-auto' src="https://i.pinimg.com/originals/3f/94/70/3f9470b34a8e3f526dbdb022f9f19cf7.jpg" alt="" />
-                            <h1 className='text-center text-xl font-semibold'>{user?.displayName}</h1>
-
-                        </div>
-                        <li><Link to='/dashboard/delivery'>Delivery</Link></li>
-                        <li><Link to='/dashboard/adminpanel'>Admin Panel</Link></li>
-                        <li><Link to='/dashboard/allusers'>All Users</Link></li>
-                        <li><Link to='/dashboard/allsales'>Sales</Link></li>
-                    </ul>
-
-                </div>
             </div>
         </div>
     );

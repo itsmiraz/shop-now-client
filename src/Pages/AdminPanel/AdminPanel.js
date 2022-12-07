@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import LoadingAnimation from '../../Components/LoadingAnimation/LoadingAnimation';
 import AddProductModal from './AddProductModal';
+import MessageCard from './MessageCard';
 
 const AdminPanel = () => {
 
@@ -13,6 +14,16 @@ const AdminPanel = () => {
             const res = await fetch('http://localhost:5000/users')
             const data = await res.json()
             return data
+        }
+    })
+
+    const {data:messages=[], } = useQuery({
+        queryKey: ['messages'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/message')
+            const data = await res.json()
+            return data
+
         }
     })
 
@@ -46,8 +57,9 @@ const AdminPanel = () => {
         return <LoadingAnimation></LoadingAnimation>
     }
 
+    console.log(messages)
     return (
-        <div className='bg-gray-300 h-screen p-5 w-full'>
+        <div className='bg-gray-300 px-10  w-full'>
             <h1 className='text-xl text-center font-semibold my-4' >This is Admin Panel</h1>
             <AddProductModal></AddProductModal>
             <div className='grid gird-cols-1 gap-5 md:grid-cols-2'>
@@ -126,7 +138,19 @@ const AdminPanel = () => {
                         </button>
                     </Link>
                 </div>
+
            
+            </div>
+            <div className='my-4 bg-gray-200 px-4 md:px-10 py-10 '>
+                <h1 className='text-xl text-center mb-10 font-semibold'>Messages</h1>
+                <div className='grid  gap-5  grid-cols-2'>
+                    {
+                        messages.map(message => <MessageCard
+                            key={message._id}
+                            message={ message}
+                        ></MessageCard>)
+                    }
+                </div>
             </div>
         </div>
     );
