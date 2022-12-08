@@ -7,7 +7,6 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import { useState } from 'react';
 
 const Messages = () => {
-    const [animation, setAnimation] = useState(true)
     const { data: messages, isLoading } = useQuery({
         queryKey: ['messages'],
         queryFn: async () => {

@@ -1,4 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
+import AllProducts from "../Layout/Dashboard/AllProducts/AllProducts";
+import AllProductsCatagory from "../Layout/Dashboard/AllProductsCaragory/AllProductsCatagory";
 import Dashboard from "../Layout/Dashboard/Dashboard";
 import Main from "../Layout/Main/Main";
 import About from "../Pages/About/About";
@@ -83,6 +85,16 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/allsales',
                 element: <Private><AdminRoute><AllSales></AllSales></AdminRoute></Private>
+            },
+        
+            {
+                path: '/dashboard/productscatagory',
+                element: <Private><AdminRoute><AllProductsCatagory></AllProductsCatagory></AdminRoute></Private>
+            },
+            {
+                path: '/dashboard/products/:id',
+               loader: ({ params }) => fetch(` https://shop-now-server.vercel.app/catagory/${params.id}`),
+                element: <Private><AdminRoute><AllProducts></AllProducts></AdminRoute></Private>
             },
             {
                 path: '/dashboard/delivery',

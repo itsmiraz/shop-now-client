@@ -97,7 +97,7 @@ const Cart = () => {
     let totalPrice = 0;
 
     for (let product of orderSum) {
-        totalPrice += product.price;
+        totalPrice += parseFloat(product.price);
     }
     let totalProducts = orderSum.length;
     let shipping = 20;
@@ -138,7 +138,7 @@ const Cart = () => {
                             </p>
                         </div>
                         :
-                        <>
+                        <div className='mb-52 mr-0 md:mr-52'>
                             {
                                 orders?.map(order => <SmallCard
                                     key={order._id}
@@ -148,11 +148,11 @@ const Cart = () => {
                                     handleDelete={handleDelete}
                                 ></SmallCard>)
                             }
-                        </>
+                        </div>
 
                 }
             </div>
-            <div className={`text-center absolute top-15 z-40 md:right-0 ease-linear duration-200  ${open ? `right-0` : ' right-[-500px]'}`}>
+            <div className={`text-center fixed top-16 h-screen z-40 md:right-0 ease-linear duration-200  ${open ? `right-0` : ' right-[-500px]'}`}>
                 <OrderSummury
                     totalPrice={totalPrice}
                     totalProducts={totalProducts}
@@ -162,7 +162,7 @@ const Cart = () => {
                 ></OrderSummury>
             </div>
             {
-                open &&  <div className='z-10 bg-black md:hidden ease-linear duration-200 opacity-50 h-full w-full absolute top-0 bottom-0 left-0 right-0'>
+                open &&  <div  onClick={() => setopen(!open)}  className='z-10 bg-black md:hidden  duration-200 opacity-50 h-full w-full absolute top-0 bottom-0 left-0 right-0'>
 
                 </div>
            }
