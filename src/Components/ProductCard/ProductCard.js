@@ -27,7 +27,7 @@ const ProductCard = ({ product }) => {
                 price: price,
                 email: user.email
             }
-            fetch('http://localhost:5000/order', {
+            fetch(' https://shop-now-server.vercel.app/order', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

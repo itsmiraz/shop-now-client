@@ -8,7 +8,7 @@ import CatagoryCard from './CatagoryCard';
 const Catagorye = () => {
     const [catagoris, setCatagory] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/catagory')
+        fetch(' https://shop-now-server.vercel.app/catagory')
             .then(res => res.json())
             .then(data => setCatagory(data))
     }, [])
@@ -17,7 +17,7 @@ const Catagorye = () => {
     const {data:catagories,isLoading } = useQuery({
         queryKey: ['catagory'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/catagory`)
+            const res = await fetch(` https://shop-now-server.vercel.app/catagory`)
             const data = await res.json()
             return data
         }

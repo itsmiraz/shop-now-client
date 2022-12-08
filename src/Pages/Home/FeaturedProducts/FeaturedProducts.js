@@ -10,7 +10,7 @@ const FeaturedProducts = () => {
         queryKey: ['products'],
         queryFn: async () => {
 
-            const res = await fetch('http://localhost:5000/catagory/00')
+            const res = await fetch(' https://shop-now-server.vercel.app/catagory/00')
             const data = await res.json()
             return data
         }

@@ -19,7 +19,7 @@ const CheckOutForm = ({ body ,setProccessing,proccessing}) => {
   const { _id, grandTotal, buyerEmail } = body;
   console.log('payment', grandTotal)
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch(" https://shop-now-server.vercel.app/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -78,7 +78,7 @@ const CheckOutForm = ({ body ,setProccessing,proccessing}) => {
       navigate('/dashboard/delivery')
 
 
-      fetch(`http://localhost:5000/payments/${_id}`, {
+      fetch(` https://shop-now-server.vercel.app/payments/${_id}`, {
         method: 'PUT',
         headers: {
           'content-type': "application/json",

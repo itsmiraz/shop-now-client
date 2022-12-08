@@ -5,30 +5,23 @@ import { Link } from 'react-router-dom';
 import LoadingAnimation from '../../Components/LoadingAnimation/LoadingAnimation';
 import AddProductModal from './AddProductModal';
 import MessageCard from './MessageCard';
+import Messages from './Messages';
 
 const AdminPanel = () => {
 
     const { data: users, isLoading, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users')
+            const res = await fetch(' https://shop-now-server.vercel.app/users')
             const data = await res.json()
             return data
         }
     })
 
-    const { data: messages = [], } = useQuery({
-        queryKey: ['messages'],
-        queryFn: async () => {
-            const res = await fetch('http://localhost:5000/message')
-            const data = await res.json()
-            return data
-
-        }
-    })
+  
 
     const handleMakeAdmin = (email) => {
-        fetch(`http://localhost:5000/makeadmin?email=${email}`, {
+        fetch(` https://shop-now-server.vercel.app/makeadmin?email=${email}`, {
             method: 'PUT'
         })
             .then(res => res.json())
@@ -41,7 +34,7 @@ const AdminPanel = () => {
     }
 
     const handleMakeMod = (email) => {
-        fetch(`http://localhost:5000/makemod?email=${email}`, {
+        fetch(` https://shop-now-server.vercel.app/makemod?email=${email}`, {
             method: 'PUT'
         })
             .then(res => res.json())
@@ -57,7 +50,7 @@ const AdminPanel = () => {
         return <LoadingAnimation></LoadingAnimation>
     }
 
-    console.log(messages)
+  
     return (
         <div className='bg-gray-300 px-4  md:px-10  w-full'>
             <h1 className='text-xl text-center font-semibold my-4' >This is Admin Panel</h1>
@@ -147,13 +140,8 @@ const AdminPanel = () => {
             </div>
             <div className='my-4 bg-gray-200 px-4 md:px-10 py-10 '>
                 <h1 className='text-xl text-center mb-10 font-semibold'>Messages</h1>
-                <div className='grid  gap-5  grid-cols-1 md:grid-cols-2'>
-                    {
-                        messages.map(message => <MessageCard
-                            key={message._id}
-                            message={message}
-                        ></MessageCard>)
-                    }
+                <div>
+                    <Messages></Messages>
                 </div>
             </div>
         </div>

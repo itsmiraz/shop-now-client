@@ -11,7 +11,7 @@ const Delivery = () => {
     const { data: delivery, isLoading } = useQuery({
         queryKey: ['delivery'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/delivery?email=${user?.email}`)
+            const res = await fetch(` https://shop-now-server.vercel.app/delivery?email=${user?.email}`)
             const data = await res.json()
             const paid = data.filter(order => order.paid === 'true')
             return paid

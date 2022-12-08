@@ -13,7 +13,7 @@ const Shop = () => {
   
     const [productCatagory, setProductCatagory] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/catagory')
+        fetch(' https://shop-now-server.vercel.app/catagory')
             .then(res => res.json())
             .then(data => {
                 setProductCatagory(data)

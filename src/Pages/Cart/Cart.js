@@ -17,7 +17,7 @@ const Cart = () => {
     const { data: orders, isLoading, refetch } = useQuery({
         queryKey: ['orders', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/order?email=${user?.email}`)
+            const res = await fetch(` https://shop-now-server.vercel.app/order?email=${user?.email}`)
             const data = res.json()
             return data
 
@@ -28,7 +28,7 @@ const Cart = () => {
 
     const handleDelete = id => {
         console.log(id);
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(` https://shop-now-server.vercel.app/order/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
@@ -46,7 +46,7 @@ const Cart = () => {
 
 
     const handleClearCart = (email) => {
-        fetch(`http://localhost:5000/clear?email=${email}`, {
+        fetch(` https://shop-now-server.vercel.app/clear?email=${email}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -110,7 +110,7 @@ const Cart = () => {
             buyerEmail: user?.email,
             orders: orderSum,
         }
-        fetch('http://localhost:5000/payments', {
+        fetch(' https://shop-now-server.vercel.app/payments', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

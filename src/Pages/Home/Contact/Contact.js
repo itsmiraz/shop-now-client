@@ -26,7 +26,7 @@ const Contact = () => {
             message,
         }
         console.log(messageBody);
-        fetch('http://localhost:5000/message', {
+        fetch(' https://shop-now-server.vercel.app/message', {
             method: 'POST',
             headers: {
                 'content-type':'application/json'

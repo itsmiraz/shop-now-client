@@ -37,12 +37,12 @@ const router = createBrowserRouter([
             },
             {
                 path: '/shop',
-                loader: () => fetch(`http://localhost:5000/catagory/00`),
+                loader: () => fetch(` https://shop-now-server.vercel.app/catagory/00`),
                 element: <Shop></Shop>
             },
             {
                 path: '/shop/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/catagory/${params.id}`),
+                loader: ({ params }) => fetch(` https://shop-now-server.vercel.app/catagory/${params.id}`),
                 element: <Shop></Shop>
             },
             {
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/payments/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/payments/${params.id}`),
+                loader: ({ params }) => fetch(` https://shop-now-server.vercel.app/payments/${params.id}`),
                 element: <Private><Payment></Payment></Private>
             },
             {

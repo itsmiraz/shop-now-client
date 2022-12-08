@@ -9,13 +9,13 @@ const AllUsers = () => {
     const { data: users, isLoading, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users')
+            const res = await fetch(' https://shop-now-server.vercel.app/users')
             const data = await res.json()
             return data
         }
     })
     const handleMakeAdmin = (email) => {
-        fetch(`http://localhost:5000/makeadmin?email=${email}`, {
+        fetch(` https://shop-now-server.vercel.app/makeadmin?email=${email}`, {
             method: 'PUT'
         })
             .then(res => res.json())
@@ -28,7 +28,7 @@ const AllUsers = () => {
     }
 
     const handleMakeMod = (email) => {
-        fetch(`http://localhost:5000/makemod?email=${email}`, {
+        fetch(` https://shop-now-server.vercel.app/makemod?email=${email}`, {
             method: 'PUT'
         })
             .then(res => res.json())

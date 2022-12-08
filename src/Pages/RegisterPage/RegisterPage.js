@@ -71,7 +71,7 @@ const RegisterPage = () => {
             role,
 
         }
-        fetch(`http://localhost:5000/user/${email}`, {
+        fetch(` https://shop-now-server.vercel.app/user/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
