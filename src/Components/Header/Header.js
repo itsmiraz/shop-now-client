@@ -13,7 +13,7 @@ const Header = () => {
     const handleLogOut = () => {
         logOut()
             .then(res => {
-                console.log(res)
+                // console.log(res)
                 toast.success('Log out SuccessFully')
             })
             .catch(err => console.log(err))
@@ -24,13 +24,7 @@ const Header = () => {
 
             <img width={'150px'} src={logo} alt="" />
 
-            <div className='flex items-center relative'>
-                <input placeholder='Search' className='w-full md:w-80 h-10 rounded-full bg-gray-300 border px-3' type="text" />
-                <button className='absolute text-orange-500 right-2'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                </svg>
-                </button>
-            </div>
+           
 
             <div>
                 <ul className={`md:flex items-center right-0 z-0 bg-gray-200 md:bg-white w-full py-4 md:py-0 text-gray-700 text-center justify-center md:static duration-300 ease-linear absolute ${open ? 'top-12' : 'top-[-450px]'}`}>

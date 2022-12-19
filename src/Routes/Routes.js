@@ -11,6 +11,7 @@ import Cart from "../Pages/Cart/Cart";
 import Contact from "../Pages/Contact/Contact";
 import UserPage from "../Pages/DashboardRoutes/UserPage/UserPage";
 import Delivery from "../Pages/Delivery/Delivery";
+import Errorpage from "../Pages/Errorpage/Errorpage";
 import Home from "../Pages/Home/Home/Home";
 import LoginPage from "../Pages/LoginPage/LoginPage";
 import Payment from "../Pages/Payment/Payment";
@@ -64,7 +65,9 @@ const router = createBrowserRouter([
                 path: '/contact',
                 element: <Contact></Contact>
             }
+
         ]
+
     },
     {
         path: '/dashboard',
@@ -101,6 +104,11 @@ const router = createBrowserRouter([
                 element: <Private><Delivery></Delivery></Private>
             }
         ]
+    },
+    {
+        path: '*',
+        element:<Errorpage></Errorpage>
+
     }
 ])
 export default router;

@@ -5,14 +5,20 @@ import { AuthContext } from '../../Context/UserContext';
 import useAdmin from '../../Hooks/useAdmin/useAdmin';
 
 const MenuRoutes = () => {
-    const { user } = useContext(AuthContext)
+    const { user,userDB } = useContext(AuthContext)
     const [isAdmin] = useAdmin(user?.email)
     return (
         <div>
-            <ul className="p-4 menu font-semibold h-screen w-72 bg-base-100 text-base-content">
+
+            <ul className="p-4 menu font-semibold w-72 bg-base-100">
                 <li>
-                    <img className='w-28  rounded-full ' src="https://i.pinimg.com/originals/3f/94/70/3f9470b34a8e3f526dbdb022f9f19cf7.jpg" alt="" />
-                    <h1 className='text-center text-xl font-semibold'>{user?.displayName}</h1>
+                    <Link to='/dashboard  '>
+                        <div className='h-28 overflow-hidden rounded-full'>
+                        <img className='w-28 overflow-hidden rounded-full ' src={userDB?.userImg ? `${userDB?.userImg}`:'"https://i.pinimg.com/originals/3f/94/70/3f9470b34a8e3f526dbdb022f9f19cf7.jpg"'} alt="" />
+                            
+</div>
+                    </Link>
+                        <h1 className='text-center text-xl font-semibold'>{user?.displayName}</h1>
                 </li>
 
                 <li><Link to='/dashboard/delivery'>Delivery</Link></li>

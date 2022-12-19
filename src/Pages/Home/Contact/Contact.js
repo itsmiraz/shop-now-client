@@ -51,10 +51,10 @@ const Contact = () => {
             <section className="p-6 ">
                 <form onSubmit={handleMessage} action="" className="container text-white flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid">
                     
-                    <fieldset className="grid md:grid-cols-2  grid-cols-1 px-20 gap-6 p-6 rounded-md shadow-sm bg-orange-600">
+                    <fieldset className="grid md:grid-cols-2  grid-cols-1 px-4 md:px-20 gap-6 p-2 md:p-6 rounded-md shadow-sm bg-orange-600">
                         <div className="flex flex-col  justify-center ">
                             <h1 className='text-4xl font-semibold'>Contact Us?</h1>
-                            <p className='w-96 my-4'>Feel free to send us any message or any bug report so that we can work on that.We will reply as soon as possible . Or you have a problem with our product or taking to long to delivery you can contact us here.</p>
+                            <p className='w-full md:w-96 my-4'>Feel free to send us any message or any bug report so that we can work on that.We will reply as soon as possible . Or you have a problem with our product or taking to long to delivery you can contact us here.</p>
                         </div>
                         <div className="">
                             <div className='grid gap-5 grid-cols-2'>

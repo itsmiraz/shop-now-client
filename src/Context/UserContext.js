@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuth
 import { useState } from 'react';
 import { useEffect } from 'react';
 import app from '../Firebase/firebase.init';
+import { useQuery } from '@tanstack/react-query';
 
 export const AuthContext = createContext()
 
@@ -12,7 +13,7 @@ const UserContext = ({ children }) => {
     const auth = getAuth(app)
     const [roomDetails, setRoomDetails] = useState('')
     const [loading, setLoading] = useState(true)
-
+    const [userDB, setuserDB] = useState({})
 
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -28,6 +29,8 @@ const UserContext = ({ children }) => {
 
     }
 
+
+
     const signIn = (email, password) => {
         setLoading(false)
         return signInWithEmailAndPassword(auth, email, password)
@@ -41,7 +44,7 @@ const UserContext = ({ children }) => {
         setLoading(true)
         return updateProfile(auth.currentUser, profile)
     }
-    const updateUser = (userInfo) =>{
+    const updateUser = (userInfo) => {
         setLoading(true)
         return updateProfile(auth.currentUser, userInfo);
     }
@@ -56,7 +59,15 @@ const UserContext = ({ children }) => {
 
         return () => unsubscribe()
 
-    },)
+    },[auth])
+
+    useEffect(() => {
+        fetch(`https://shop-now-server.vercel.app/user/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setuserDB(data))
+
+    }, [user?.email])
+
 
 
     const logOut = () => {
@@ -72,6 +83,7 @@ const UserContext = ({ children }) => {
         loading,
         setuserProfile,
         logOut,
+        userDB,
         googleSginIn,
         signIn,
         auth,

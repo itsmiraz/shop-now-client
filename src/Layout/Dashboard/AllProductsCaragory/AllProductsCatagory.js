@@ -18,7 +18,7 @@ const AllProductsCatagory = () => {
         return <LoadingAnimation></LoadingAnimation>
     }
     return (
-        <div className='w-full h-screen  px-20 bg-gray-200'>
+        <div className='w-full h-screen  px-4 md:px-20 bg-gray-200'>
             <h1 className='text-xl text-center font-semibold my-4'>All Products</h1>
             <div className='grid grid-cols-2 mb-20 gap-10 md:grid-cols-3'>
                 {
