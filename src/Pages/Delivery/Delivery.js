@@ -9,7 +9,7 @@ const Delivery = () => {
 
     const { user } = useContext(AuthContext)
     const { data: delivery, isLoading } = useQuery({
-        queryKey: ['delivery'],
+        queryKey: ['delivery',],
         queryFn: async () => {
             const res = await fetch(` https://shop-now-server.vercel.app/delivery?email=${user?.email}`)
             const data = await res.json()

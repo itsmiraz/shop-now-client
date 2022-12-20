@@ -4,7 +4,6 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
 import logo from '../../assests/logo/logo.png'
 import { AuthContext } from '../../Context/UserContext';
 import toast from 'react-hot-toast';
-import { FaShoppingCart } from "react-icons/fa";
 
 const Header = () => {
     const [open, setOpen] = useState(false)

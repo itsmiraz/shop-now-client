@@ -11,7 +11,7 @@ const Hero = () => {
     return (
 
         <AwesomeSlider className='h-[650px]'>
-            <div className='bg-orange-600 gap-10 grid grid-col-1 md:grid-cols-2  w-full h-full md:p-20'>
+            <div className='bg-orange-500 gap-10 grid grid-col-1 md:grid-cols-2  w-full h-full md:p-20'>
                 <div className='mt-10 p-2 md:p-12 md:text-start text-center'>
                     <h1 className='text-5xl md:text-7xl  text-white font-bold'>Small & Thin<br /> Smart Watch <br />4th Gen</h1>
                     <Link className='flex md:justify-start justify-center' to='/shop'>

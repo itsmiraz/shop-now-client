@@ -4,7 +4,6 @@ import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuth
 import { useState } from 'react';
 import { useEffect } from 'react';
 import app from '../Firebase/firebase.init';
-import { useQuery } from '@tanstack/react-query';
 
 export const AuthContext = createContext()
 
@@ -60,6 +59,8 @@ const UserContext = ({ children }) => {
         return () => unsubscribe()
 
     },[auth])
+
+    
 
     useEffect(() => {
         fetch(`https://shop-now-server.vercel.app/user/${user?.email}`)

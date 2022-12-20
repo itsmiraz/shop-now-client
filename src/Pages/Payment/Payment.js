@@ -11,7 +11,6 @@ const Payment = () => {
   const data = useLoaderData();
   const [proccessing, setProccessing] = useState(false);
 
-  console.log(data)
 
   const shipping = 20;
   return (

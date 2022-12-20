@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const CheckOutForm = ({ body ,setProccessing,proccessing}) => {
+ 
   const stripe = useStripe();
   const navigate = useNavigate()
   const elements = useElements();
@@ -41,7 +42,7 @@ const CheckOutForm = ({ body ,setProccessing,proccessing}) => {
       return;
     }
 
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
+    const { error,  } = await stripe.createPaymentMethod({
       type: "card",
       card,
     });
