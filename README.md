@@ -7,8 +7,11 @@
 ---------------------------------
 
 # Technology Used
--Front end
+
+- Front end
+
 React, Javascript, Firebase, Tailwind CSS, Tanstack Query, React Router etc
 
--Backend 
+- Backend 
+
 Mongo DB , Node.js, Express js, Rest API etc
