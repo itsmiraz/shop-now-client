@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const CheckOutForm = ({ body ,setProccessing,proccessing}) => {
- 
+const CheckOutForm = ({ body, proccessing, setProccessing }) => {
+
   const stripe = useStripe();
   const navigate = useNavigate()
   const elements = useElements();
@@ -19,6 +19,7 @@ const CheckOutForm = ({ body ,setProccessing,proccessing}) => {
 
   const { _id, grandTotal, buyerEmail } = body;
   console.log('payment', grandTotal)
+
   useEffect(() => {
     fetch(" https://shop-now-server.vercel.app/create-payment-intent", {
       method: "POST",
@@ -32,9 +33,11 @@ const CheckOutForm = ({ body ,setProccessing,proccessing}) => {
   }, [grandTotal]);
 
   const handleSubmit = async event => {
-    // 
+
+
     event.preventDefault();
-    if (!stripe || !elements || proccessing) {
+
+    if (!stripe || !elements) {
       return;
     }
     const card = elements.getElement(CardElement);
@@ -42,7 +45,7 @@ const CheckOutForm = ({ body ,setProccessing,proccessing}) => {
       return;
     }
 
-    const { error,  } = await stripe.createPaymentMethod({
+    const { error, } = await stripe.createPaymentMethod({
       type: "card",
       card,
     });
@@ -52,11 +55,13 @@ const CheckOutForm = ({ body ,setProccessing,proccessing}) => {
       setCardError(error.message);
     } else {
       setCardError("");
+      // setProccessing(true)
+
     }
+
     setSuccess('')
-    setProccessing(true)
-    const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
-      clientSecret,
+    console.log('test');
+    const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment( clientSecret,
       {
         payment_method: {
           card: card,
@@ -67,28 +72,29 @@ const CheckOutForm = ({ body ,setProccessing,proccessing}) => {
         },
       },
     );
-
+    console.log(confirmError)
+    console.log('test')
+    console.log(paymentIntent);
     if (confirmError) {
       setCardError(confirmError.message)
     }
+
     if (paymentIntent.status === 'succeeded') {
       setSuccess('Congrats Your Payment is Done')
       setTransactionID(paymentIntent.id)
-       setProccessing(false)
       toast.success('Payment Success')
       navigate('/dashboard/delivery')
-
-
-      fetch(` https://shop-now-server.vercel.app/payments/${_id}`, {
+      fetch(`https://shop-now-server.vercel.app/payments/${_id}`, {
         method: 'PUT',
         headers: {
           'content-type': "application/json",
         },
-      
+
       })
         .then(res => res.json())
         .then(data => {
           console.log(data);
+          setProccessing(false)
         })
 
     }
@@ -100,6 +106,7 @@ const CheckOutForm = ({ body ,setProccessing,proccessing}) => {
       {
         proccessing ?
           <>
+            <h1 className="animate-pulse">Proccessing...</h1>
           </>
           :
           <>

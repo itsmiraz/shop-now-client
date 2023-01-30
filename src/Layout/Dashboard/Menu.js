@@ -1,9 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion'
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { AuthContext } from '../../Context/UserContext';
-import useAdmin from '../../Hooks/useAdmin/useAdmin';
+
 import MenuRoutes from './MenuRoutes';
 
 const Menu = ({ openMenu }) => {

@@ -1,12 +1,9 @@
-import React, { useContext, useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
-import Backdrop from '../../Components/Backdrop/Backdrop';
+import React, {  useState } from 'react';
+import {Outlet } from 'react-router-dom';
 import Header from '../../Components/Header/Header';
-import { AuthContext } from '../../Context/UserContext';
 import Menu from './Menu';
 
 const Dashboard = () => {
-    const { user } = useContext(AuthContext)
     const [openMenu, setopenMenu] = useState(false)
 
    
